@@ -23,4 +23,9 @@ class Message extends Model
     {
         return $this->belongsToMany(Reaction::class);
     }
+    
+    protected $fillable = [
+        'body', 
+        'conversation_id',
+    ];
 }

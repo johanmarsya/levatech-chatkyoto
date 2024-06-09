@@ -49,6 +49,8 @@ class User extends Authenticatable
         'password',
         'grade',
         'icon_path',
+        'department_id',
+        'faculty_id',
     ];
 
     /**

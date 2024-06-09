@@ -18,4 +18,8 @@ class Department extends Model
     {
         return $this->hasMany(Faculty::class);
     }
+    
+    protected $fillable = [
+        'name',
+    ];
 }

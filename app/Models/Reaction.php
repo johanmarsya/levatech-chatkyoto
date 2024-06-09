@@ -13,4 +13,9 @@ class Reaction extends Model
     {
         return $this->belongsToMany(Message::class);
     }
+    
+    protected $fillable = [
+        'name', 
+        'image_path',
+    ];
 }

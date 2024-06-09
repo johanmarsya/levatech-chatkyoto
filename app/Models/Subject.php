@@ -18,4 +18,9 @@ class Subject extends Model
     {
         return $this->hasOne(Conversation::class);
     }
+    
+    protected $fillable = [
+        'subject_name',
+        'start_time',
+    ];
 }

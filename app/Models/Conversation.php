@@ -23,4 +23,9 @@ class Conversation extends Model
     {
         return $this->hasMany(Message::class);
     }
+    
+    protected $fillable = [
+        'name', 
+        'subject_id',
+    ];
 }

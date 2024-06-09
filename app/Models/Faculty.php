@@ -18,4 +18,9 @@ class Faculty extends Model
     {
         return $this->belongsTo(Department::class);
     }
+    
+    protected $fillable = [
+        'name',
+        'department_id',
+    ];
 }
