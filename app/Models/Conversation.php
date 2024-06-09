@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Subject extends Model
+class Conversation extends Model
 {
     use HasFactory;
     
@@ -14,8 +14,13 @@ class Subject extends Model
         return $this->belongsToMany(User::class);
     }
     
-    public function conversation()
+    public function subject()
     {
-        return $this->hasOne(Conversation::class);
+        return $this->belogsTo(Subject::class);
+    }
+    
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
     }
 }
