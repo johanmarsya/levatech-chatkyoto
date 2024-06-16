@@ -14,9 +14,14 @@ class Message extends Model
         return $this->belongsTo(Conversation::class);
     }
     
-    public function users()
+    public function messageUsers()
     {
         return $this->belongsToMany(User::class);
+    }
+    
+    public function muser()
+    {
+        return $this->belongsTo(User::class);
     }
     
     public function reactions()
