@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
+use App\Models\Department;
+use App\Models\Faculty;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -19,9 +21,9 @@ class RegisteredUserController extends Controller
     /**
      * Display the registration view.
      */
-    public function create(): Response
+    public function create(Department $department, Faculty $faculty): Response
     {
-        return Inertia::render('Auth/Register');
+        return Inertia::render('Auth/Register', ["departments" => $department->get(), "faculties" => $faculty->get()]);
     }
 
     /**
@@ -35,12 +37,18 @@ class RegisteredUserController extends Controller
             'user_name' => 'required|string|max:255',
             'email' => 'required|string|lowercase|email|max:255|unique:'.User::class,
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'department_id' => 'required',
+            'faculty_id' => 'required',
+            'grade' => 'required',
         ]);
 
         $user = User::create([
             'user_name' => $request->user_name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'department_id' => $request->department_id,
+            'faculty_id' => $request->faculty_id,
+            'grade' => $request->grade
         ]);
 
         event(new Registered($user));
