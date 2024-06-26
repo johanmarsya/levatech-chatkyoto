@@ -47,20 +47,6 @@ export default function Register(props) {
     };
     
     const typeOfGradeList = [ "B1","B2","B3","B4", "M1", "M2", "D1", "D2"];
-    const selectGrade = (e) => {
-        const selectedValue = e.target.value;
-        const index = typeOfGradeList.indexOf(selectedValue);
-        const number = index + 1;
-        
-        if (index === -1) {
-            setData('grade', '');
-            console.log(selectedValue, number);
-        } else {
-            setData('grade', number.toString());
-            console.log(selectedValue, number);
-            console.log(typeof number);
-        }
-    }
     
     return (
         <GuestLayout>
@@ -143,12 +129,12 @@ export default function Register(props) {
                         name="grade"
                         value={data.grade}
                         className="mt-1 block w-full"
-                        onChange={(e) => selectGrade(e)}
+                        onChange={(e) => setData('grade', e.target.value)}
                         required
                     >
                         <option value="">Select Your Grade</option>
                         {typeOfGradeList.map((element, index) => (
-                            <option key={index} value={element}>
+                            <option key={index} value={index + 1}>
                                 {element}
                             </option>
                         ))}
