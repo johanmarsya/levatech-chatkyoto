@@ -15,6 +15,7 @@ export default function Register(props) {
         department_id: '',
         faculty_id: '',
         grade: '',
+        icon_path: '',
     });
     
     useEffect(() => {

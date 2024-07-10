@@ -5,6 +5,7 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
@@ -22,19 +23,19 @@ class User extends Authenticatable
         return $this->belongsTo(Faculty::class);
     }
     
-    public function subjects()
+    public function subjects(): BelongsToMany
     {
-        return $this->belongsToMany(Subject::class);
+        return $this->belongsToMany(Subject::class, 'subject_user');
     }
     
-    public function conversations()
+    public function conversations(): BelongsToMany
     {
-        return $this->belongsToMany(Conversation::class);
+        return $this->belongsToMany(Conversation::class, 'conversation_user');
     }
     
-    public function messageUsers() 
+    public function messageUsers(): BelongsToMany 
     {
-        return $this->belongsToMany(Message::class);
+        return $this->belongsToMany(Message::class, 'message_user');
     }
     
     public function messages()

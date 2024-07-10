@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Message extends Model
 {
@@ -14,23 +15,24 @@ class Message extends Model
         return $this->belongsTo(Conversation::class);
     }
     
-    public function messageUsers()
+    public function users(): BelongsToMany
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class, 'message_user');
     }
     
-    public function muser()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
     
-    public function reactions()
+    public function reactions(): BelongsToMany
     {
-        return $this->belongsToMany(Reaction::class);
+        return $this->belongsToMany(Reaction::class, 'message_reaction');
     }
     
     protected $fillable = [
-        'body', 
+        'message', 
         'conversation_id',
+        'user_id',
     ];
 }
