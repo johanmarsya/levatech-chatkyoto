@@ -64,17 +64,6 @@ export default function ChatForm({ user, sendMessage, usersInRoom }) {
 
     return (
         <div className="text-center">
-            <textarea
-                ref={textareaRef}
-                className="border-0 border-white w-full"
-                placeholder="メッセージを入力 (送信時はEnter, 改行時はShift+Enter)"
-                value={newMessage}
-                onChange={(e) => handleChange(e)}
-                onKeyDown={(e) => handleKeyDown(e)}
-                onCompositionStart={() => handleCompositionStart()}
-                onCompositionEnd={(e) => handleCompositionEnd(e)}
-                rows="2"
-            />
             {showUsers && (
                 <ul className="absolute bg-white border border-gray-300 mt-2 w-1/2 mx-auto left-0 right-0 z-10">
                     {filteredUsers.map((user, index) => (
@@ -88,6 +77,17 @@ export default function ChatForm({ user, sendMessage, usersInRoom }) {
                     ))}
                 </ul>
             )}
+            <textarea
+                ref={textareaRef}
+                className="border-0 border-white w-full"
+                placeholder="メッセージを入力 (送信時はEnter, 改行時はShift+Enter)"
+                value={newMessage}
+                onChange={(e) => handleChange(e)}
+                onKeyDown={(e) => handleKeyDown(e)}
+                onCompositionStart={() => handleCompositionStart()}
+                onCompositionEnd={(e) => handleCompositionEnd(e)}
+                rows="2"
+            />
         </div>
     );
 }

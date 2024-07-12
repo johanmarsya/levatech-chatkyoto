@@ -33,6 +33,11 @@ export default function Authenticated({ user, header, children }) {
                                 <NavLink href={route('notifications.index')} active={route().current('notifications.index')} className="text-white hover:text-gray-300">
                                     Notifications
                                 </NavLink>
+                                <NavLink
+                                    href={route('register_subjects')} active={route().current('register_subjects')} className="text-white hover:text-gray-300"
+                                >
+                                    Register all of your Classes →
+                                </NavLink>
                             </div>
                         </div>
 

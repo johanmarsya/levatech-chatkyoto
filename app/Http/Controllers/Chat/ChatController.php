@@ -50,6 +50,7 @@ class ChatController extends Controller
             $mentionedUser = User::where('user_name', $mentionendUsername)->first();
             if ($mentionedUser) {
                 $message->users()->attach($mentionedUser->id);
+                // broadcast(new NotificationSent($mentionedUser, $message))->toOthers();
             }
         }
         
@@ -67,8 +68,8 @@ class ChatController extends Controller
     
             return response()->json($users);
         } catch (\Exception $e) {
-        \Log::error('Error fetching users in room: ' . $e->getMessage());
-        return response()->json(['error' => 'Error fetching users in room'], 500);
+            \Log::error('Error fetching users in room: ' . $e->getMessage());
+            return response()->json(['error' => 'Error fetching users in room'], 500);
         }
     }
 }

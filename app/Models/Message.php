@@ -17,7 +17,7 @@ class Message extends Model
     
     public function users(): BelongsToMany
     {
-        return $this->belongsToMany(User::class, 'message_user');
+        return $this->belongsToMany(User::class, 'message_user')->withPivot('is_read');;
     }
     
     public function user()
@@ -27,7 +27,8 @@ class Message extends Model
     
     public function reactions(): BelongsToMany
     {
-        return $this->belongsToMany(Reaction::class, 'message_reaction');
+        return $this->belongsToMany(Reaction::class, 'message_reaction')
+                    ->withPivot('reaction_id');
     }
     
     protected $fillable = [

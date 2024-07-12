@@ -57,6 +57,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/users/{conversation}', [ChatController::class, 'getUsersInRoom'])->name('chat.users');
     
     Route::get('/notifications', [NotificationsController::class, 'index'])->name('notifications.index');
+    Route::post('/notifications/read/{id}', [NotificationsController::class, 'markAsRead'])->name('notifications.read');
 });
 
 require __DIR__.'/auth.php';

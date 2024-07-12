@@ -36,18 +36,6 @@ export default function Welcome({ auth }) {
                         </>
                     )}
                 </div>
-                <div className="absolute bottom-10 left-10 animate-zoom-in-right-up">
-                    <img src="/images/haikei_1.jpeg" alt="Image 1" className="w-32 h-32 rounded-full transform rotate-animation" />
-                </div>
-                <div className="absolute bottom-10 right-10 animate-zoom-in-left-up">
-                    <img src="/images/haikei_1.jpeg" alt="Image 2" className="w-32 h-32 rounded-full transform rotate-animation" />
-                </div>
-                <div className="absolute top-10 left-10 animate-zoom-in-right-down">
-                    <img src="/images/haikei_1.jpeg" alt="Image 3" className="w-32 h-32 rounded-full transform rotate-animation" />
-                </div>
-                <div className="absolute top-10 right-10 animate-zoom-in-left-down">
-                    <img src="/images/haikei_1.jpeg" alt="Image 4" className="w-32 h-32 rounded-full transform rotate-animation" />
-                </div>
             </div>
 
             <style>{`
@@ -71,61 +59,6 @@ export default function Welcome({ auth }) {
                 }
                 .hover\\:shadow-lg:hover {
                     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-                }
-                .animate-zoom-in-right-up {
-                    animation: zoom-in-right-up 5s ease forwards;
-                }
-                .animate-zoom-in-left-up {
-                    animation: zoom-in-left-up 5s ease forwards;
-                }
-                .animate-zoom-in-right-down {
-                    animation: zoom-in-right-down 5s ease forwards;
-                }
-                .animate-zoom-in-left-down {
-                    animation: zoom-in-left-down 5s ease forwards;
-                }
-                @keyframes zoom-in-right-up {
-                    0% {
-                        transform: scale(1) translate(0, 0);
-                    }
-                    100% {
-                        transform: scale(2) translate(150%, -150%);
-                    }
-                }
-                @keyframes zoom-in-left-up {
-                    0% {
-                        transform: scale(1) translate(0, 0);
-                    }
-                    100% {
-                        transform: scale(2) translate(-150%, -150%);
-                    }
-                }
-                @keyframes zoom-in-right-down {
-                    0% {
-                        transform: scale(1) translate(0, 0);
-                    }
-                    100% {
-                        transform: scale(2) translate(150%, 150%);
-                    }
-                }
-                @keyframes zoom-in-left-down {
-                    0% {
-                        transform: scale(1) translate(0, 0);
-                    }
-                    100% {
-                        transform: scale(2) translate(-150%, 150%);
-                    }
-                }
-                .rotate-animation {
-                    animation: rotate 5s linear infinite;
-                }
-                @keyframes rotate {
-                    0% {
-                        transform: rotate(0deg);
-                    }
-                    100% {
-                        transform: rotate(360deg);
-                    }
                 }
             `}</style>
         </>

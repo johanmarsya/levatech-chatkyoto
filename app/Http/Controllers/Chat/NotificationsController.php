@@ -15,10 +15,23 @@ class NotificationsController extends Controller
         $user = Auth::user();
         $mentionedMessages = Message::whereHas('users', function ($query) use ($user) {
             $query->where('user_id', $user->id);
-        })->with('user', 'conversation')->get();
+        })
+        ->with(['user', 'conversation', 'users' => function ($query) use ($user) {
+            $query->where('user_id', $user->id);
+        }])->get();
 
         return Inertia::render('Chat/Notifications', [
             'mentionedMessages' => $mentionedMessages,
         ]);
+    }
+    
+    public function markAsRead(Request $request, $id)
+    {
+        $user = Auth::user();
+        $message = Message::findOrFail($id);
+        
+        $message->users()->updateExistingPivot($user->id, ['is_read' => true]);
+        
+        return redirect()->back();
     }
 }
