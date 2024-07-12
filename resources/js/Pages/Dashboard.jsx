@@ -62,19 +62,24 @@ export default function Dashboard({ auth }) {
                                     />
                                 </div>
                             </div>
-                            <div className="flex items-center gap-4">
-                                <PrimaryButton disabled={processing}>Save</PrimaryButton>
-                                <InputError>{errors}</InputError>
-            
-                                <Transition
-                                    show={recentlySuccessful}
-                                    enter="transition ease-in-out"
-                                    enterFrom="opacity-0"
-                                    leave="transition ease-in-out"
-                                    leaveTo="opacity-0"
-                                >
-                                    <p className="text-sm text-gray-600">Saved...</p>
-                                </Transition>
+                            <div className="flex items-center justify-between gap-4">
+                                <div className="flex items-center gap-4">
+                                    <PrimaryButton disabled={processing}>Save</PrimaryButton>
+                                    <InputError>{errors}</InputError>
+                
+                                    <Transition
+                                        show={recentlySuccessful}
+                                        enter="transition ease-in-out"
+                                        enterFrom="opacity-0"
+                                        leave="transition ease-in-out"
+                                        leaveTo="opacity-0"
+                                    >
+                                        <p className="text-sm text-gray-600">Saved...</p>
+                                    </Transition>
+                                </div>
+                                <a href="https://www.iloveimg.com/ja/compress-image/compress-jpg" target="_blank" className="text-blue-500">
+                                    jpg画像圧縮を行う外部サイトはこちら
+                                </a>
                             </div>
                         </form>
                     </div>
