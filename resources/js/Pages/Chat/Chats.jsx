@@ -61,7 +61,7 @@ export default function Chats({ auth, errors }) {
         >
             <Head title="チャット" />
 
-            <div className="py-12 h-[600px]">
+            <div className="py-12 h-[600px]  overflow-y-scroll p-3">
                 <div className="mx-[8%] bg-white h-full overflow-y-scroll p-3">
                     <ChatMessages messages={messages} />
                 </div>

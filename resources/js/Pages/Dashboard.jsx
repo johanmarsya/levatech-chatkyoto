@@ -113,7 +113,7 @@ export default function Dashboard({ auth }) {
                                                         <ul className="list-disc list-inside">
                                                             <h3　className="text-red-500">Rooms</h3>
                                                                 <p>
-                                                                    チャット部屋では「@」を用いたメンション機能が使えます。<br/>
+                                                                    チャット部屋では「@(半角)」を用いたメンション機能が使えます。<br/>
                                                                     ファイルのアップロードは現時点では使えませんので、pdfなどを共有する場合は<br/>
                                                                     自分のgoogledriveに保存を行い、そのURLを貼り付けて下さい。
                                                                 </p>

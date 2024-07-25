@@ -65,17 +65,19 @@ export default function ChatForm({ user, sendMessage, usersInRoom }) {
     return (
         <div className="text-center">
             {showUsers && (
-                <ul className="absolute bg-white border border-gray-300 mt-2 w-1/2 mx-auto left-0 right-0 z-10">
-                    {filteredUsers.map((user, index) => (
-                        <li
-                            key={index}
-                            className="p-2 hover:bg-gray-200 coursor-pointer"
-                            onClick={() => handleUserClick(user.user_name)}
-                        >
-                            {user.user_name}
-                        </li>
-                    ))}
-                </ul>
+                <div className="popup-window">
+                    <ul className="absolute bg-white border border-gray-300 mt-2 w-1/2 mx-auto left-0 right-0 z-10">
+                        {filteredUsers.map((user, index) => (
+                            <li
+                                key={index}
+                                className="p-2 hover:bg-gray-200 coursor-pointer"
+                                onClick={() => handleUserClick(user.user_name)}
+                            >
+                                {user.user_name}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             )}
             <textarea
                 ref={textareaRef}
